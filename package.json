@@ -20,6 +20,7 @@
     "express": "^4.17.1",
     "express-winston": "^4.1.0",
     "helmet": "^4.6.0",
+    "uuidv4": "^6.2.12",
     "winston": "^3.3.3"
   },
   "devDependencies": {

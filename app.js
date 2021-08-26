@@ -7,9 +7,9 @@ import {registerMiddleware} from './middleware';
 const app = express();
 registerMiddleware(app);
 
-app.listen(config.PORT, () => {
+app.listen(config.PORT, async () => {
 	try {
-		configureDynamo();
+		await configureDynamo();
 		app.use(routes);
 		console.log(`Server running on port: ${config.PORT}`);
 	} catch (e) {
