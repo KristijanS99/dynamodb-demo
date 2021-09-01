@@ -1,6 +1,6 @@
 # dynamodb-demo
 
-_This repository contains a sample Node application based on [Express](http://expressjs.com/) using the [DynamoDB data mapper module](https://www.npmjs.com/package/dynamodb)_ It also uses the [single-table design](https://aws.amazon.com/blogs/compute/creating-a-single-table-design-with-amazon-dynamodb/).
+_This repository contains a sample Node application based on [Express](http://expressjs.com/) using the [DynamoDB data mapper module](https://www.npmjs.com/package/dynamodb). It also uses the [single-table design](https://aws.amazon.com/blogs/compute/creating-a-single-table-design-with-amazon-dynamodb/)_.
 
 ---
 
