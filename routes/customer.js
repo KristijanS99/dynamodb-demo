@@ -1,6 +1,7 @@
 import express from 'express';
 import Customer, {createPK, BASE_SK} from '../models/Customer';
 import {isProduct} from '../models/Product';
+import {setOrderStatusObject} from '../models/Order';
 // eslint-disable-next-line new-cap
 const router = express.Router();
 
@@ -55,6 +56,7 @@ router.get('/customer/:id/orders', async (req, res) => {
 
 					// Find all products for each Order based on SK prefix
 					orders.forEach(order => {
+						setOrderStatusObject(order);
 						order.attrs.products = data?.Items
 							?.filter(item => item?.get('SK')?.includes(order.get('SK'))
 							&& isProduct(item));
