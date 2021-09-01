@@ -11,6 +11,7 @@ if (!config) {
 		secretAccessKey: process.env.SECRET_ACCESS_KEY,
 		region: process.env.REGION,
 		tableName: process.env.TABLE_NAME,
+		autoCreateTables: process.env.AUTO_CREATE_TABLES === 'true',
 	};
 }
 

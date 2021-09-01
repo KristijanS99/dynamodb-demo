@@ -23,4 +23,5 @@ export const registerModel = dynamo => {
 
 export const createSK = (orderId = uuid(), productId = uuid()) => `ORDER-${orderId}-PRODUCT-${productId}`;
 
-export default Product;
+export const isProduct = product => product?.get('SK')?.includes('PRODUCT-');
+export {Product as default};

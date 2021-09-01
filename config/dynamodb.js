@@ -14,7 +14,10 @@ export default async () => {
 	try {
 		dynamo.AWS.config.update({accessKeyId: config.accessKeyId, secretAccessKey: config.secretAccessKey, region: config.region});
 		registerModels();
-		await dynamo.createTables();
+		if (config.autoCreateTables) {
+			await dynamo.createTables();
+		}
+
 		console.log('Tables created');
 		return;
 	} catch (err) {

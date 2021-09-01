@@ -1,7 +1,8 @@
 import Joi from 'joi';
+import {uuid} from 'uuidv4';
 import config from '../config/environment';
 
-const BASE_SK = 'PROFILE';
+export const BASE_SK = 'PROFILE';
 
 let Customer;
 
@@ -26,4 +27,6 @@ export const registerModel = dynamo => {
 	Customer = dynamo.define('Customer', CustomerModel);
 };
 
-export default Customer;
+export const createPK = (customerId = uuid()) => `CUSTOMER-${customerId}`;
+
+export {Customer as default};

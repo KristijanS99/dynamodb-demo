@@ -14,12 +14,22 @@ const OrderModel = {
 		SK: Joi.string().required(),
 		totalAmount: Joi.number().positive().required(),
 		quantity: Joi.number().positive().required(),
-		orderStatus: Joi.number().positive().required(),
+		orderStatus: Joi.number().positive().required().min(1).max(5),
 	},
 };
 
 export const registerModel = dynamo => {
 	Order = dynamo.define('Order', OrderModel);
+};
+
+export const getOrderStatusKey = orderStatusValue =>
+	Object.keys(orderStatusMap).find(key => orderStatusMap[key] === orderStatusValue);
+
+export const setOrderStatusObject = order => {
+	order.attrs.orderStatus = {
+		id: order.get('orderStatus'),
+		name: getOrderStatusKey(order.get('orderStatus')),
+	};
 };
 
 export const orderStatusMap = {
@@ -32,4 +42,4 @@ export const orderStatusMap = {
 
 export const createSK = (orderId = uuid()) => `ORDER-${orderId}`;
 
-export default Order;
+export {Order as default};
