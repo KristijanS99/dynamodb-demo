@@ -16,9 +16,11 @@ export default async () => {
 		registerModels();
 		if (config.autoCreateTables) {
 			await dynamo.createTables();
+			console.log('Tables created');
 		}
 
-		console.log('Tables created');
+		console.log('Tables create flag is FALSE, skipping table create');
+
 		return;
 	} catch (err) {
 		console.error('Error creating tables: ', err);
